@@ -1,0 +1,49 @@
+{
+  "appId": "com.jarvis.desktop",
+  "productName": "JARVIS",
+  "directories": {
+    "output": "dist-electron"
+  },
+  "files": [
+    "desktop/**/*",
+    "frontend/dist/**/*"
+  ],
+  "extraResources": [
+    {
+      "from": "backend",
+      "to": "backend",
+      "filter": [
+        "**/*",
+        "!**/.venv/**",
+        "!**/data/**",
+        "!**/tests/**",
+        "!**/__pycache__/**",
+        "!**/.env",
+        "!**/.env.*",
+        "!**/models/**",
+        "!**/*.pyc"
+      ]
+    },
+    {
+      "from": ".env.example",
+      "to": ".env.example"
+    },
+    {
+      "from": "frontend/public/icon.ico",
+      "to": "icon.ico"
+    }
+  ],
+  "win": {
+    "target": "nsis",
+    "icon": "frontend/public/icon.ico",
+    "signAndEditExecutable": false
+  },
+  "mac": {
+    "target": "dir",
+    "icon": "frontend/public/icon.png"
+  },
+  "linux": {
+    "target": "dir",
+    "icon": "frontend/public/icon.png"
+  }
+}
